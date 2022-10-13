@@ -127,14 +127,14 @@ export function RouterProvider({
       setShallowRoute(false);
     }
 
+    // Blank this out so any return trips to the original component re-fetches props.
+    setInitialPath("");
+
     setRoute({
       href,
       asPath,
       options,
     });
-
-    // Blank this out so any return trips to the original component re-fetches props.
-    setInitialPath("");
 
     window.history.pushState({ href, asPath }, null, asPath);
   }
